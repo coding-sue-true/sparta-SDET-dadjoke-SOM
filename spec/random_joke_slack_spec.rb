@@ -2,27 +2,39 @@ require 'spec_helper'
 
 describe DadJokes do
 
-  context 'requesting joke works correctly' do
+  context 'requesting jokes for slack works correctly' do
 
     before(:all) do
       @jokes = DadJokes.new.random_joke_slack
-      @jokes.get_random_joke
+      @jokes.get_random_joke_slack
     end
 
     it "should respond with an hash of results" do
-      expect(@jokes.get_random_joke_all).to be_kind_of(Hash)
+      expect(@jokes.get_random_joke_slack_all).to be_kind_of(Hash)
     end
 
-    it "id should respond as a string" do
-      expect(@jokes.get_random_joke_id).to be_kind_of(String)
+    it "attachments should respond with an array of results" do
+      expect(@jokes.get_attachments).to be_kind_of(Array)
     end
 
-    it "joke should respond as a strin" do
-      expect(@jokes.get_random_joke_text).to be_kind_of(String)
+    it "fallback should respond as a string" do
+      expect(@jokes.get_fallback).to be_kind_of(String)
     end
 
-    it "page should have a status of 200" do
-      expect(@jokes.get_random_joke_status).to eql 200
+    it "footer should respond as a string" do
+      expect(@jokes.get_footer).to be_kind_of(String)
+    end
+
+    it "text should respond as a string" do
+      expect(@jokes.get_text).to be_kind_of(String)
+    end
+
+    it "response_type should respond as a string" do
+      expect(@jokes.get_response_type).to be_kind_of(String)
+    end
+
+    it "username should respond as a string" do
+      expect(@jokes.get_username).to be_kind_of(String)
     end
 
   end
