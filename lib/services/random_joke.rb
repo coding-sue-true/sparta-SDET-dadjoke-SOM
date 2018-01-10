@@ -4,16 +4,16 @@ require 'json'
 
 class RandomJokeService
   include HTTParty
-  headers 'Accept' => 'application/json'
+  # headers 'Accept' => 'application/json'
 
   base_uri 'https://icanhazdadjoke.com/'
 
   def get_random_joke
-    @random_joke_api = JSON.parse(self.class.get("").body)
+    @random_joke_api = JSON.parse(self.class.get("", :headers => { "Accept" => 'application/json' }).body)
   end
 
   def get_random_joke_all
-    get_random_joke
+    @random_joke_api
   end
 
   def get_random_joke_id
@@ -28,6 +28,3 @@ class RandomJokeService
     get_random_joke_all['status']
   end
 end
-
-joke = RandomJokeService.new
-p joke.get_random_joke_all

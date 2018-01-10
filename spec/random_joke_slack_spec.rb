@@ -5,7 +5,7 @@ describe DadJokes do
   context 'requesting joke works correctly' do
 
     before(:all) do
-      @jokes = DadJokes.new.random_joke
+      @jokes = DadJokes.new.random_joke_slack
       @jokes.get_random_joke
     end
 
