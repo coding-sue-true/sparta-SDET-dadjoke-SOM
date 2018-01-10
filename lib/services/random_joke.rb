@@ -9,7 +9,7 @@ class RandomJokeService
   base_uri 'https://icanhazdadjoke.com/'
 
   def get_random_joke
-    @random_joke_api = JSON.parse(self.class.get("", :headers => { "Accept" => 'application/json' }).body)
+    @random_joke_api = JSON.parse(self.class.get("", :headers => { "Accept" => 'application/json'}).body)
   end
 
   def get_random_joke_all

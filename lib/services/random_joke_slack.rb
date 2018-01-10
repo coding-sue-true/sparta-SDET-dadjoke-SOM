@@ -4,12 +4,11 @@ require 'json'
 
 class RandomJokeSlackService
   include HTTParty
-  # headers 'Accept' => 'application/json'
 
   base_uri 'https://icanhazdadjoke.com/slack'
 
   def get_random_joke_slack
-    @random_joke_slack_api = JSON.parse(self.class.get("", :headers => { "Accept" => 'application/json' }).body)
+    @random_joke_slack_api = JSON.parse(self.class.get("", :headers => { "Accept" => 'application/json'}).body)
   end
 
   def get_random_joke_slack_all
